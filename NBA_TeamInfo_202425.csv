@@ -1,0 +1,74 @@
+﻿TEAM_ID,ABBREVIATION,NICKNAME,YEARFOUNDED,CITY,ARENA,ARENACAPACITY,OWNER,GENERALMANAGER,HEADCOACH,DLEAGUEAFFILIATION
+1611661330,ATL,Dream,2008,Atlanta,Gateway Center Arena,,"L. Gottesdiener, S. Abair, and R. Montgomery",Dan Padover,Karl Smesko,
+1610612737,ATL,Hawks,1949,Atlanta,State Farm Arena,18729,Tony Ressler,Travis Schlenk,Quin Snyder,College Park Skyhawks
+1612709890,AUS,Spurs,2001,Austin,H-E-B Center at Cedar Park,,San Antonio Spurs, ,Petar Bozic,SAS
+1612709913,BHM,Squadron,2008,Birmingham,Legacy Arena at The BJCC,,Steve Demetriou, ,Ryan Pannone,NOP
+1610612738,BOS,Celtics,1946,Boston,TD Garden,18624,Bill Chisholm,Brad Stevens,Joe Mazzulla,Maine Celtics
+1610612751,BKN,Nets,1976,Brooklyn,Barclays Center,,Joe Tsai,Sean Marks,Jordi Fernandez,Long Island Nets
+1612709928,CCG,Go-Go,2018,Capital City,Entertainment and Sports Arena,, ,Pops Mensah-Bonsu,Mike Williams,WAS
+1610612766,CHA,Hornets,1988,Charlotte,Spectrum Center,19026,Rick Schnall,Mitch Kupchak,Charles Lee,Greensboro Swarm
+1610612741,CHI,Bulls,1966,Chicago,United Center,21711,Michael Reinsdorf,Arturas Karnisovas,Billy Donovan,Windy City Bulls
+1611661329,CHI,Sky,2006,Chicago,Wintrust Arena,,Michael Alter,Jeff Pagliocca,Tyler Marsh,
+1612709931,MXC,Capitanes,2021,Ciudad de Mexico,Arena CDMX,,, ,Ramon Diaz Sanchez, 
+1610612739,CLE,Cavaliers,1970,Cleveland,Rocket Arena,20562,Dan Gilbert,Koby Altman,Kenny Atkinson,Cleveland Charge
+1612709893,CLC,Charge,2001,Cleveland,Cleveland State University’s Wolstein Center,,Cleveland Cavaliers, ,Mike Gerrity,CLE
+1612709929,CPS,Skyhawks,2019,College Park,Gateway Center Arena,, , ,Ryan Schmidt,ATL
+1611661323,CON,Sun,1999,Connecticut,Mohegan Sun Arena,,Mohegan Sun,Darius Taylor,Rachid Meziane,
+1610612742,DAL,Mavericks,1980,Dallas,American Airlines Center,19200,Patrick Dumont,,Jason Kidd,Texas Legends
+1611661321,DAL,Wings,1998,Dallas,College Park Center,,Bill Cameron,Curt Miller,Jose Fernandez,
+1612709909,DEL,Blue Coats,2007,Delaware,76ers Fieldhouse,10102,Philadelphia 76ers, ,Coby Karl,PHI
+1610612743,DEN,Nuggets,1976,Denver,Ball Arena,,Stan Kroenke,,David Adelman,Grand Rapids Gold
+1610612765,DET,Pistons,1948,Detroit,Little Caesars Arena,,Tom Gores,Trajan Langdon,J. B. Bickerstaff,Motor City Cruise
+1610612744,GSW,Warriors,1946,Golden State,Chase Center,,Joe Lacob,Mike Dunleavy Jr.,Steve Kerr,Santa Cruz Warriors
+1612709917,GRG,Gold,2009,Grand Rapids,DeltaPlex Arena,,"SSJ Group, LLC", ,Jason Terry,DEN
+1612709922,GBO,Swarm,2016,Greensboro,The Fieldhouse,,Hornets Sports & Entertainment, ,Jordan Surenkamp,CHA
+1610612745,HOU,Rockets,1967,Houston,Toyota Center,18104,Tilman Fertitta,Rafael Stone,Ime Udoka,Rio Grande Valley Vipers
+1611661325,IND,Fever,2000,Indiana,Gainbridge Fieldhouse ,18345,Herbert Simon,Amber Cox,Stephanie White,
+1612709910,NOB,Boom,2007,Noblesville,Allen County War Memorial Coliseum,,Indiana Pacers, ,Tom Hankins,IND
+1610612754,IND,Pacers,1976,Indiana,Gainbridge Fieldhouse ,18345,Herb Simon,Kevin Pritchard,Rick Carlisle,Noblesville Boom
+1612709911,IWA,Wolves,2007,Iowa,Wells Fargo Arena,,"Iowa Basketball, LLC", ,Jeff Newton,MIN
+1610612746,LAC,Clippers,1970,Los Angeles,Intuit Dome,19060,Steve Ballmer,Michael Winger,Tyronn Lue,Agua Caliente Clippers of Ontario
+1611661319,LVA,Aces,1997,Las Vegas,Michelob Ultra Arena,,Mark Davis,,Becky Hammon,
+1612709921,LIN,Nets,2016,Brooklyn,Nassau Veterans Memorial Coliseum,14890,Brooklyn Nets, ,Adam Caporn,BKN
+1610612747,LAL,Lakers,1948,Los Angeles,Crypto.com Arena,19060,Mark Walter & Jeanie Buss,Rob Pelinka,JJ Redick,South Bay Lakers
+1611661320,LAS,Sparks,1997,Los Angeles,Crypto.com Arena,19060,Earvin Johnson and Mark Walter,Raegan Pebley,Lynne Roberts,
+1612709915,MNE,Celtics,2009,Maine,Portland Expo Building,,"Maine Basketball, LLC", ,Jarell Christian,BOS
+1610612763,MEM,Grizzlies,1995,Memphis,FedExForum,18119,Robert Pera,Zach Kleiman,Tuomas Iisalo,Memphis Hustle
+1612709926,MHU,Hustle,2017,Memphis,Landers Center,, ,Daniel Marcus,Jason March,MEM
+1610612748,MIA,Heat,1988,Miami,Kaseya Center,19600,Micky Arison,Pat Riley,Erik Spoelstra,Sioux Falls Skyforce
+1610612749,MIL,Bucks,1968,Milwaukee,Fiserv Forum,17500,Wesley Edens,Jon Horst,Doc Rivers,Wisconsin Herd
+1611661324,MIN,Lynx,1999,Minnesota,Target Center,19356,Glen Taylor,,Cheryl Reeve,
+1610612750,MIN,Timberwolves,1989,Minnesota,Target Center,19356,Marc Lore & Alex Rodriguez,Tim Connelly,Chris Finch,Iowa Wolves
+1612709932,MCC,Cruise,2021,Detroit,Wayne State Fieldhouse,,, ,DJ Bakker,DET
+1610612740,NOP,Pelicans,2002,New Orleans,Smoothie King Center,,Gayle Benson,Troy Weaver,James Borrego,Birmingham Squadron
+1610612752,NYK,Knicks,1946,New York,Madison Square Garden,19763,Jim Dolan,Leon Rose,Mike Brown,Westchester Knicks
+1611661313,NYL,Liberty,1997,New York,Barclays Center,,Joe Tsai,Jonathan Kolb,,
+1612709889,OKL,Blue,2001,Oklahoma City,Cox Convention Center,,Professional Basketball Club LLC, ,Grant Gibbs,OKC
+1610612760,OKC,Thunder,1967,Oklahoma City,Paycom Center,,Clay Bennett,Sam Presti,Mark Daigneault,Oklahoma City Blue
+1610612753,ORL,Magic,1989,Orlando,Kia Center,0,Dan DeVos,John Hammond,Jamahl Mosley,Osceola Magic
+1612709925,OSC,Magic,2018,Osceola,Silver Spurs Arena,, ,Anthony Parker,Dylan Murphy,ORL
+1610612755,PHI,76ers,1949,Philadelphia,Xfinity Mobile Arena,,Joshua Harris & David Blitzer,Elton Brand,Nick Nurse,Delaware Blue Coats
+1611661317,PHX,Mercury,1997,Phoenix,Footprint Center,,Mat Ishbia,Nick U'Ren,Nate Tibbetts,
+1610612756,PHX,Suns,1968,Phoenix,Mortgage Matchup Center,,Mat Ishbia,Brian Gregory,Jordan Ott,Valley Suns
+1610612757,POR,Trail Blazers,1970,Portland,Moda Center,19980,Jody Allen,Joe Cronin,Chauncey Billups,Rip City Remix
+1612709920,RAP,905,2015,"Mississauga, ON",Paramount Fine Foods Centre,,Maple Leaf Sports & Entertainment, ,Patrick Mutombo,TOR
+1612709908,RGV,Vipers,2007,Rio Grande Valley,Bert Ogden Arena,,"RGV Basketball, LLC", ,Mahmoud Abdelfattah,HOU
+1612709933,RCR,Remix,2023,Rip City,,,, ,,POR
+1610612758,SAC,Kings,1948,Sacramento,Golden 1 Center,17500,Vivek Ranadive,Monte McNair,Doug Christie,Stockton Kings
+1612709903,SLC,Stars,2016,Salt Lake City,Lifetime Activities Center-Bruin Arena,,Larry H. Miller Sports and Entertainment, ,Nathan Peavy,UTA
+1610612759,SAS,Spurs,1976,San Antonio,Frost Bank Center,18694,Peter Holt,Brian Wright,Mitch Johnson,Austin Spurs
+1612709924,SDC,Clippers,2017,San Diego,Frontwave Arena,0, ,Dee Brown,Paul Hewitt,LAC
+1612709902,SCW,Warriors,1995,Santa Cruz,Kaiser Permanente Arena,,Golden State Warriors, ,Seth Cooper,GSW
+1611661328,SEA,Storm,2000,Seattle,Climate Pledge Arena,17072,"Ginny Gilder, Dawn Trudeau, and Lisa Brummel",Talisa Rhea,Sonia Raman,
+1612709904,SXF,Skyforce,1989,Sioux Falls,Sanford Pentagon,,"Bob Correa, Greg Heineman, Roger Larsen and Tom Wa", ,Kasib Powell,MIA
+1612709905,SBL,Lakers,2006,Los Angeles,UCLA Health Training Center,,Los Angeles Lakers, ,Miles Simon,LAL
+1612709914,STO,Kings,2008,Stockton,Adventist Health Arena,,Sacramento Kings, ,Bobby Jackson,SAC
+1612709918,TEX,Legends,2006,Texas,Comerica Center,,"Texas D-League Management, LLC", ,George Galanopoulos,DAL
+1610612761,TOR,Raptors,1995,Toronto,Scotiabank Arena,,Lawrence Tanenbaum,,Darko Rajakovic,Raptors 905
+1610612762,UTA,Jazz,1974,Utah,Delta Center,,Ryan Smith,Justin Zanik,Will Hardy,Salt Lake City Stars
+1612709934,VAL,Suns,2024,Valley,Mullett Arena,,, ,,PHX
+1611661322,WAS,Mystics,1998,Washington,Entertainment & Sports Arena,20647,Ted Leonsis,,Sydney Johnson,
+1610612764,WAS,Wizards,1961,Washington,Capital One Arena,20647,Ted Leonsis,Will Dawkins,Brian Keefe,Capital City Go-Go
+1612709919,WES,Knicks,2014,Westchester,Westchester County Center,,The Madison Square Garden Company, ,Derrick Alston,NYK
+1612709923,WCB,Bulls,2016,Windy City,Sears Centre,,Chicago Bulls, ,Henry Domercant,CHI
+1612709927,WIS,Herd,2017,Wisconsin,Oshkosh Arena,, ,Dave Dean,Beno Udrih,MIL
