@@ -207,6 +207,15 @@ ggplot(team_summary_svm, aes(x = actual_win_rate, y = avg_pred_prob, label = TEA
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5))
 
+
+# 0. 套件
+############################################################
+library(dplyr)
+library(ggplot2)
+library(randomForest)
+install.packages("caret")
+library(caret)
+
 # 1. 資料前處理（使用你前面的一樣）
 ############################################################
 # svm_data 的第一欄為 WL_num（factor），其餘欄位都是 numeric
