@@ -157,7 +157,7 @@ for(k in 1:K){
   test_data  <- svm_data[test_idx, ]
   
   # 使用預設 SVM 模型（RBF kernel）
-  svm_model <- svm(WL_num ~ ., data = train_data, kernel = "radial", scale = TRUE)
+  svm_model <- svm(WL_num ~ ., data = train_data, kernel = "linear", scale = TRUE)
   
   pred <- predict(svm_model, test_data)
   acc <- mean(pred == test_data$WL_num)
@@ -171,7 +171,7 @@ cat("【基礎 SVM】5 折交叉驗證平均準確率:", round(mean(accuracy_lis
 svm_final <- svm(
   WL_num ~ ., 
   data = svm_data, 
-  kernel = "radial", 
+  kernel = "linear", 
   scale = TRUE,
   probability = TRUE
 )
