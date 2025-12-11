@@ -8,7 +8,8 @@ from matplotlib import font_manager
 # 加入中文字體（本機字體）
 plt.rcParams['font.family'] = 'Microsoft JhengHei'
 st.title("🏀 NBA Game Prediction Dashboard (R Models + Streamlit UI)")
-
+font_manager.fontManager.addfont("fonts/msjh.ttf")
+plt.rcParams['font.family'] = 'Microsoft JhengHei'
 # --- Sidebar ---
 model = st.sidebar.selectbox(
     "選擇模型",
