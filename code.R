@@ -157,7 +157,7 @@ for(k in 1:K){
   test_data  <- svm_data[test_idx, ]
   
   # 使用預設 SVM 模型（RBF kernel）
-  svm_model <- svm(WL_num ~ ., data = train_data, kernel = "linear", scale = TRUE)
+  svm_model <- svm(WL_num ~ ., data = train_data, kernel = "radial", scale = TRUE)
   
   pred <- predict(svm_model, test_data)
   acc <- mean(pred == test_data$WL_num)
@@ -171,7 +171,7 @@ cat("【基礎 SVM】5 折交叉驗證平均準確率:", round(mean(accuracy_lis
 svm_final <- svm(
   WL_num ~ ., 
   data = svm_data, 
-  kernel = "linear", 
+  kernel = "radial", 
   scale = TRUE,
   probability = TRUE
 )
@@ -309,6 +309,53 @@ ggplot(team_summary_rf,
   theme_minimal()
 
 
+### 建立 output 資料夾 ###
+if(!dir.exists("output")) dir.create("output")
+
+### --- Logistic Regression 輸出 --- ###
+# 每場逐場比賽預測
+write.csv(
+  GameLogs2 %>% select(TEAM_ABBREVIATION, MATCHUP, WL, WL_num, pred_prob, pred_class, error),
+  "output/game_predictions_logit.csv",
+  row.names = FALSE
+)
+
+# 每隊預測 vs 真實勝率
+write.csv(
+  team_summary,
+  "output/team_summary_logit.csv",
+  row.names = FALSE
+)
+
+### --- SVM 輸出 --- ###
+write.csv(
+  GameLogs2 %>% select(TEAM_ABBREVIATION, MATCHUP, WL, WL_num, svm_pred_prob, svm_error),
+  "output/game_predictions_svm.csv",
+  row.names = FALSE
+)
+
+write.csv(
+  team_summary_svm,
+  "output/team_summary_svm.csv",
+  row.names = FALSE
+)
+
+### --- 模型指標輸出 --- ###
+model_metrics <- data.frame(
+  model = c("logistic", "svm"),
+  accuracy = c(
+    round(accuracy, 4),
+    round(mean(accuracy_list), 4)
+  )
+)
+
+write.csv(
+  model_metrics,
+  "output/model_metrics.csv",
+  row.names = FALSE
+)
+
+cat("所有 CSV 已輸出到 output/ 資料夾\n")
 
 
 

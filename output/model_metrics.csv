@@ -1,0 +1,3 @@
+"model","accuracy"
+"logistic",0.6206
+"svm",0.6084
