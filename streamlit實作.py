@@ -1,66 +1,59 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
 
-st.set_page_config(layout="wide")
-st.title("🏀 NBA Game Prediction Dashboard")
+# 設定頁面寬度
+st.set_page_config(page_title="NBA 預測儀表板", layout="wide")
 
-# ---------------- Sidebar ----------------
-page = st.sidebar.radio("頁面", ["模型結果", "模型比較"])
+st.title("🏀 NBA 2024-25 賽季預測模型看板")
 
-model_map = {
-    "Logistic Regression": "logit",
-    "SVM": "svm",
-    "Random Forest": "rf",
-    "CART": "cart"
-}
+# 讀取 R 產生的資料
+@st.cache_data
+def load_data():
+    return pd.read_csv("NBA_Final_Predictions.csv")
 
-model_name = st.sidebar.selectbox("選擇模型", list(model_map.keys()))
-model_key = model_map[model_name]
+try:
+    df = load_data()
 
-# ---------------- Load Data ----------------
-game_df = pd.read_csv(f"output/game_predictions_{model_key}.csv")
-team_df = pd.read_csv(f"output/team_summary_{model_key}.csv")
-metrics = pd.read_csv("output/model_metrics.csv")
+    # 模型選擇器
+    model_map = {
+        "Logistic Regression": "pred_prob",
+        "SVM": "svm_pred_prob",
+        "Random Forest": "rf_pred_prob",
+        "CART (Decision Tree)": "cart_pred_prob"
+    }
+    selected_label = st.sidebar.selectbox("切換預測模型", list(model_map.keys()))
+    prob_col = model_map[selected_label]
 
-# ---------------- Page 1: Model Result ----------------
-if page == "模型結果":
-    acc = metrics.loc[metrics.model == model_key, "accuracy"].values[0]
-    st.sidebar.metric("模型準確率", f"{acc:.3f}")
+    # --- 1. 球隊匯總計算 ---
+    team_summary = df.groupby('TEAM_ABBREVIATION').agg({
+        'WL_num': 'mean',
+        prob_col: 'mean'
+    }).reset_index()
+    team_summary.columns = ['球隊', '實際勝率', '模型預測勝率']
 
-    st.subheader("📊 球隊預測勝率 vs 真實勝率")
+    # --- 2. 視覺化：散點圖 ---
+    st.subheader(f"📊 {selected_label}：各隊預測勝率 vs 真實勝率")
+    fig = px.scatter(
+        team_summary, x="實際勝率", y="模型預測勝率", 
+        text="球隊", trendline="ols",
+        labels={"實際勝率": "實際勝率", "模型預測勝率": "模型預測勝率"},
+        template="plotly_white", height=600
+    )
+    # 加入 y=x 參考線
+    fig.add_shape(type="line", x0=0, y0=0, x1=1, y1=1, line=dict(color="Red", dash="dash"))
+    fig.update_traces(textposition='top center', marker=dict(size=10, opacity=0.8))
+    st.plotly_chart(fig, use_container_width=True)
 
-    fig, ax = plt.subplots()
-    ax.scatter(team_df["actual_win_rate"], team_df["avg_pred_prob"])
-    ax.plot([0,1],[0,1], linestyle="--")
-    ax.set_xlabel("真實勝率")
-    ax.set_ylabel("預測勝率")
-    st.pyplot(fig)
+    # --- 3. 球隊詳細數據表 ---
+    st.subheader("📁 各隊勝率明細")
+    st.dataframe(team_summary.style.background_gradient(cmap='Blues'), use_container_width=True)
 
-    st.subheader("📄 球隊摘要")
-    st.dataframe(team_df)
+    # --- 4. 逐場預測明細 ---
+    st.subheader("📅 逐場比賽預測明細 (前 100 場)")
+    game_detail = df[['TEAM_ABBREVIATION', 'MATCHUP', 'WL', 'WL_num', prob_col]].copy()
+    game_detail['預測成功'] = ((game_detail[prob_col] > 0.5) == game_detail['WL_num']).map({True: "✅", False: "❌"})
+    st.table(game_detail.head(100))
 
-    st.subheader("📘 逐場比賽預測")
-    teams = sorted(game_df["TEAM_ABBREVIATION"].unique())
-    team_sel = st.selectbox("篩選球隊", ["All"] + teams)
-
-    if team_sel != "All":
-        st.dataframe(game_df[game_df["TEAM_ABBREVIATION"] == team_sel])
-    else:
-        st.dataframe(game_df)
-
-# ---------------- Page 2: Model Comparison ----------------
-else:
-    st.subheader("📈 模型比較")
-
-    st.dataframe(metrics)
-
-    fig, ax = plt.subplots()
-    ax.bar(metrics["model"], metrics["accuracy"])
-    ax.set_ylabel("Accuracy")
-    st.pyplot(fig)
-
-    fig, ax = plt.subplots()
-    ax.bar(metrics["model"], metrics["brier"])
-    ax.set_ylabel("Brier Score (lower is better)")
-    st.pyplot(fig)
+except FileNotFoundError:
+    st.error("找不到 'NBA_Final_Predictions.csv'。請先在 R 中運行代碼產生匯出檔案。")
