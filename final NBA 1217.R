@@ -40,18 +40,19 @@ ml_data <- subset(
     "PF", "PFD",
     "PTS",
     
-    # ── 進階結構比例（重點） ──
-    "AST_PCT", "AST_TO", "AST_RATIO",
-    "OREB_PCT", "DREB_PCT", "REB_PCT",
+    # ── 結構比例（降維後） ──
+    "AST_RATIO",
+    "REB_PCT",
     "TM_TOV_PCT",
-    "EFG_PCT", "TS_PCT",
+    "EFG_PCT",
+    "TS_PCT",
     "PIE",
     
-    # ── 節奏與球權 ──
-    "PACE", "E_PACE", "POSS",
+    # ── 節奏（只留一個） ──
+    "PACE",
     
-    # ── 進階效率（保留但不依賴） ──
-    "OFF_RATING", "DEF_RATING", "NET_RATING"
+    # ── 效率（只留一個 rating） ──
+    "NET_RATING"
   )
 )
 
