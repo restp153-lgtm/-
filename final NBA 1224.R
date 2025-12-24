@@ -79,19 +79,50 @@ cat("包含變項範例:", head(predictors, 10), "...\n")
 # 查看模型準確度 (以 Logistic 為例)
 acc <- mean(full_ml_data$logit_pred == full_ml_data$WL_num, na.rm = TRUE)
 cat("Logistic Regression 準確度:", round(acc, 4), "\n")
+# ==========================================
+# 3. 隨機森林與 CART (使用全變項資料)
+# ==========================================
+
+# --- 準備資料：確保目標變數為 Factor 且處理缺失值 ---
+# RF 與 CART 在做分類時，目標變數必須是 Factor
+final_modeling_df <- full_ml_data %>% 
+  na.omit() %>% 
+  mutate(WL_num = as.factor(WL_num))
+
 # --- [3] Random Forest ---
-rf_data <- GameLogs2 %>% select(all_of(c("WL_num", num_vars_svm)))
-rf_data$WL_num <- as.factor(rf_data$WL_num)
+# 使用之前定義好的 formula_all
+rf_model_all <- randomForest(
+  formula_all, 
+  data = final_modeling_df, 
+  ntree = 500, 
+  importance = TRUE, # 開啟重要性評估，這對分析很有幫助
+  mtry = floor(sqrt(length(predictors)))
+)
 
-rf_final <- randomForest(WL_num ~ ., data = rf_data, ntree = 500, mtry = floor(sqrt(ncol(rf_data) - 1)))
-rf_pred_prob <- predict(rf_final, rf_data, type = "prob")
-GameLogs2$rf_pred_prob <- rf_pred_prob[, "1"]
+# 取得預測機率並存回資料表
+rf_probs <- predict(rf_model_all, final_modeling_df, type = "prob")
+final_modeling_df$rf_prob <- rf_probs[, "1"]
 
-# --- [4] CART ---
-cart_final <- rpart(as.factor(WL_num) ~ ., data = rf_data, method = "class", 
-                    control = rpart.control(cp = 0.01, minsplit = 30, maxdepth = 5))
-GameLogs2$cart_pred_prob <- predict(cart_final, rf_data, type = "prob")[, "1"]
+# --- [4] CART (決策樹) ---
+cart_model_all <- rpart(
+  formula_all, 
+  data = final_modeling_df, 
+  method = "class", 
+  control = rpart.control(cp = 0.01, minsplit = 30, maxdepth = 5)
+)
 
+# 取得預測機率
+final_modeling_df$cart_prob <- predict(cart_model_all, final_modeling_df, type = "prob")[, "1"]
+
+# ==========================================
+# 4. 模型結果可視化 (額外建議)
+# ==========================================
+
+# 1. 繪製決策樹圖 (看看哪些數據是關鍵門檻)
+rpart.plot(cart_model_all, main = "NBA 勝負決策樹 (全變項)", type = 2, extra = 104)
+
+# 2. 查看隨機森林最重要的變項 (Feature Importance)
+varImpPlot(rf_model_all, main = "隨機森林變項重要性排行")
 # ==========================================
 # 3. 匯出資料 (為了 Streamlit)
 # ==========================================
