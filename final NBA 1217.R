@@ -24,10 +24,37 @@ TeamStats   <- read.csv("NBA_TeamStats_202425.csv")
 
 # --- Step 1. 篩選球隊統計 ---
 NBA_Stats <- TeamStats[TeamStats$TEAM_ID %in% TeamInfo$TEAM_ID,]
-ml_data <- subset(NBA_Stats, select = c(
-  "TEAM_ID", "TEAM_NAME", "PTS", "REB", "AST", "BLK", "STL", 
-  "TOV", "FG3_PCT", "FG_PCT", "OFF_RATING", "DEF_RATING", "NET_RATING"
-))
+ml_data <- subset(
+  NBA_Stats,
+  select = c(
+    # ── 識別 ──
+    "TEAM_ID", "TEAM_NAME",
+    
+    # ── 傳統 box score ──
+    "FGM", "FGA", "FG_PCT",
+    "FG3M", "FG3A", "FG3_PCT",
+    "FTM", "FTA", "FT_PCT",
+    "OREB", "DREB", "REB",
+    "AST", "TOV",
+    "STL", "BLK", "BLKA",
+    "PF", "PFD",
+    "PTS",
+    
+    # ── 進階結構比例（重點） ──
+    "AST_PCT", "AST_TO", "AST_RATIO",
+    "OREB_PCT", "DREB_PCT", "REB_PCT",
+    "TM_TOV_PCT",
+    "EFG_PCT", "TS_PCT",
+    "PIE",
+    
+    # ── 節奏與球權 ──
+    "PACE", "E_PACE", "POSS",
+    
+    # ── 進階效率（保留但不依賴） ──
+    "OFF_RATING", "DEF_RATING", "NET_RATING"
+  )
+)
+
 
 # --- Step 2. 加入縮寫並處理球員資料 ---
 ml_data2 <- ml_data %>%
