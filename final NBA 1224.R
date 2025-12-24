@@ -127,5 +127,5 @@ varImpPlot(rf_model_all, main = "隨機森林變項重要性排行")
 # 3. 匯出資料 (為了 Streamlit)
 # ==========================================
 # 把最後計算完的 GameLogs2 存出去
-write.csv(GameLogs2, "NBA_Final_Predictions.csv", row.names = FALSE)
+write.csv(full_ml_data, "NBA_Final_Predictions.csv", row.names = FALSE)
 cat("處理完成，已產生 NBA_Final_Predictions.csv\n")
