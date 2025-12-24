@@ -200,7 +200,12 @@ create_high_res_plot <- function(df, x_col, model_name) {
       panel.border = element_rect(linewidth = 2, fill = NA)
     )
 }
-
+plot_configs <- list(
+  list(col = "Logit_Pred_Rate", name = "Logistic Regression", file = "plot_logit.png"),
+  list(col = "SVM_Pred_Rate",   name = "SVM",                 file = "plot_svm.png"),
+  list(col = "RF_Pred_Rate",    name = "Random Forest",       file = "plot_rf.png"),
+  list(col = "CART_Pred_Rate",  name = "CART Decision Tree",  file = "plot_cart.png")
+)
 # --- 執行迴圈輸出並儲存 ---
 # 確保 plot_configs 已定義（如前次對話所述）
 for (config in plot_configs) {
