@@ -1,4 +1,4 @@
-setwd("C:/Users/user/Desktop/計算生物學_NBA")
+setwd("C:/Users/jef81/Desktop/計算生物學/NBA")
 GameLogs <- read.csv("NBA_GameLogs_202425.csv")
 PlayerStats <- read.csv("NBA_PlayerStats_202425.csv")
 TeamInfo <- read.csv("NBA_TeamInfo_202425.csv")
